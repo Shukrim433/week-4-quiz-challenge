@@ -22,6 +22,6 @@ var questions = [
     {
         question : 'A very useful tool using development and debugging for printing content to the debugger is:',
         options : ['javascript', 'console.log', 'for loops', '.createElement'],
-        answer : 'convole.log'
+        answer : 'console.log'
     }
 ]
