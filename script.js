@@ -8,15 +8,20 @@ var scoreMessageEl = document.getElementById('score-message')
 var optionsEl = document.getElementById('options')
 var finalScoreSpan = document.getElementById('final-score')
 var timerSpan = document.getElementById('timer')
+var questionEl = document.getElementById('question')
 
-var currentQuestion = 0
+var currentQuestionIndex = 0
 var score = 0
 var countDown
+
+welcomPageEl.style.display = 'block'
+quizPageEl.style.display = 'none'
+resultsPageEl.style.display = 'none'
 
 
 startEl.addEventListener('click', function(){
     welcomPageEl.style.display = 'none'
-    quizPageEl.style.display = 'flex'
+    quizPageEl.style.display = 'block'
     resultsPageEl.style.display = 'none'
 
     timerSpan.textContent = 75
@@ -29,8 +34,9 @@ startEl.addEventListener('click', function(){
             function stopQuiz(){
                 clearInterval(countDown)
                 timerSpan.textContent = ''
+                welcomPageEl.style.display = 'none'
                 quizPageEl.style.display = 'none'
-                resultsPageEl.style.display = 'flex'
+                resultsPageEl.style.display = 'block'
     
             }
             stopQuiz()
@@ -39,6 +45,17 @@ startEl.addEventListener('click', function(){
     }, 1000)
 
 })
+
+function showQuestions (){
+    //make sure it doesnt try to display a question that doesnt exist.
+    if (currentQuestionIndex >= questions.length){
+        stopQuiz()
+        return
+    }
+    questionEl.innerHTML = questions[currentQuestionIndex].question
+    currentQuestionIndex++
+}
+showQuestions()
 
 
 
