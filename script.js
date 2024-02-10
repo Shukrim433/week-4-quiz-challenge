@@ -25,6 +25,15 @@ startEl.addEventListener('click', function(){
     countDown = setInterval(function(){
         if (timerSpan.textContent > 0){
             timerSpan.textContent--
+        }else{
+            function stopQuiz(){
+                clearInterval(countDown)
+                timerSpan.textContent = ''
+                quizPageEl.style.display = 'none'
+                resultsPageEl.style.display = 'flex'
+    
+            }
+            stopQuiz()
         }
         
     }, 1000)
