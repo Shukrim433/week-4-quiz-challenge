@@ -10,6 +10,26 @@ var finalScoreSpan = document.getElementById('final-score')
 var timerSpan = document.getElementById('timer')
 
 var currentQuestion = 0
+var score = 0
+var countDown
+
+
+startEl.addEventListener('click', function(){
+    welcomPageEl.style.display = 'none'
+    quizPageEl.style.display = 'flex'
+    resultsPageEl.style.display = 'none'
+
+    timerSpan.textContent = 75
+    score = 0
+
+    countDown = setInterval(function(){
+        if (timerSpan.textContent > 0){
+            timerSpan.textContent--
+        }
+        
+    }, 1000)
+
+})
 
 
 
