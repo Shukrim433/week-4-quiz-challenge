@@ -18,6 +18,15 @@ welcomPageEl.style.display = 'block'
 quizPageEl.style.display = 'none'
 resultsPageEl.style.display = 'none'
 
+function stopQuiz(){
+    clearInterval(countDown)
+    timerSpan.textContent = ''
+    welcomPageEl.style.display = 'none'
+    quizPageEl.style.display = 'none'
+    resultsPageEl.style.display = 'block'
+
+}
+
 
 startEl.addEventListener('click', function(){
     welcomPageEl.style.display = 'none'
@@ -31,20 +40,14 @@ startEl.addEventListener('click', function(){
         if (timerSpan.textContent > 0){
             timerSpan.textContent--
         }else{
-            function stopQuiz(){
-                clearInterval(countDown)
-                timerSpan.textContent = ''
-                welcomPageEl.style.display = 'none'
-                quizPageEl.style.display = 'none'
-                resultsPageEl.style.display = 'block'
-    
-            }
             stopQuiz()
         }
         
     }, 1000)
 
 })
+
+
 
 function showQuestions (){
     //make sure it doesnt try to display a question that doesnt exist.
@@ -53,6 +56,15 @@ function showQuestions (){
         return
     }
     questionEl.innerHTML = questions[currentQuestionIndex].question
+
+    var optionsUl = document.createElement('ul')
+    optionsEl.appendChild(optionsUl)
+
+    for (var i=0 ; i<questions[currentQuestionIndex].options.length ; i++){
+        var optionsLi = document.createElement('li')
+        optionsUl.appendChild(optionsLi)
+        optionsLi.textContent = questions[currentQuestionIndex].options[i]
+    }
     currentQuestionIndex++
 }
 showQuestions()
