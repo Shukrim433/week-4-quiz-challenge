@@ -4,14 +4,13 @@ var welcomPageEl = document.getElementById('welcome-page')
 var quizPageEl = document.getElementById('quiz-page')
 var resultsPageEl = document.getElementById('results-page')
 
-var scoreMessageEl = document.getElementById('score-message')
 var optionsEl = document.getElementById('options')
 var finalScoreSpan = document.getElementById('final-score')
 var timerSpan = document.getElementById('timer')
 var questionEl = document.getElementById('question')
+var responseEl = document.getElementById('response')
 
 var currentQuestionIndex = 0
-var score = 0
 var countDown
 
 welcomPageEl.style.display = 'block'
@@ -34,7 +33,6 @@ startEl.addEventListener('click', function(){
     resultsPageEl.style.display = 'none'
 
     timerSpan.textContent = 75
-    score = 0
 
     countDown = setInterval(function(){
         if (timerSpan.textContent > 0){
@@ -48,14 +46,15 @@ startEl.addEventListener('click', function(){
 })
 
 
-
 function showQuestions (){
-    //make sure it doesnt try to display a question that doesnt exist.
+
     if (currentQuestionIndex >= questions.length){
         stopQuiz()
         return
     }
+    
     questionEl.innerHTML = questions[currentQuestionIndex].question
+    optionsEl.innerHTML = ''
 
     var optionsUl = document.createElement('ul')
     optionsEl.appendChild(optionsUl)
@@ -65,14 +64,28 @@ function showQuestions (){
         optionsUl.appendChild(optionsLi)
         optionsLi.textContent = questions[currentQuestionIndex].options[i]
     }
-    currentQuestionIndex++
 }
-showQuestions()
 
 
+    optionsEl.addEventListener('click', function(event){
+        var correctAnswer = questions[currentQuestionIndex].answer
+        var selectedOption = event.target.textContent
+        if (correctAnswer === selectedOption){
+            finalScoreSpan.textContent ++
+            responseEl.textContent = 'CORRECT!'
+        }else{
+            timerSpan.textContent = timerSpan.textContent -= 5
+            responseEl.textContent = 'INCORRECT!'
+        }
+        currentQuestionIndex++
+        showQuestions()
+        
+    })  
+
+    showQuestions()
 
 
-
+    
 
 
 

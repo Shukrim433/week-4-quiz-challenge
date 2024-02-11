@@ -10,7 +10,7 @@ var questions = [
         answer : 'parentheses'
     },
     {
-        question : 'Arrays in javascript can be used to score:',
+        question : 'Arrays in javascript can be used to store:',
         options : ['numbers and strings', 'booleans', 'other arrays', 'all of the above'],
         answer : 'all of the above'  
     },
