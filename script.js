@@ -10,6 +10,11 @@ var timerSpan = document.getElementById('timer')
 var questionEl = document.getElementById('question')
 var responseEl = document.getElementById('response')
 
+var saveBtnEl = document.getElementById('save-score')
+var viewScoresBtnEl = document.getElementById('view-high-scores')
+var startAgainBtnEl = document.getElementById('start-again')
+var initialsEl = document.getElementById('initials')
+
 var currentQuestionIndex = 0
 var countDown
 
@@ -92,6 +97,14 @@ function showQuestions (){
     showQuestions()
 
 
+saveBtnEl.addEventListener('click', function(){
+    var finalScore = finalScoreSpan.textContent
+    localStorage.setItem(initialsEl.value, finalScore)
+})
+
+/*startAgainBtnEl.addEventListener('clicl', function (){})*/
+
+
     
 
 
@@ -116,7 +129,3 @@ function showQuestions (){
 
 
 
-
-/*var saveBtnEl = document.getElementById('save-score')
-var viewScoresBtnEl = document.getElementById('view-high-scores')
-var startAgainBtnEl = document.getElementById('start-again')*/
