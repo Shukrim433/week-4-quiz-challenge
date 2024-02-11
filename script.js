@@ -67,9 +67,11 @@ function showQuestions (){
 }
 
 
+
     optionsEl.addEventListener('click', function(event){
         var correctAnswer = questions[currentQuestionIndex].answer
         var selectedOption = event.target.textContent
+    
         if (correctAnswer === selectedOption){
             finalScoreSpan.textContent ++
             responseEl.textContent = 'CORRECT!'
@@ -77,6 +79,11 @@ function showQuestions (){
             timerSpan.textContent = timerSpan.textContent -= 5
             responseEl.textContent = 'INCORRECT!'
         }
+
+      setTimeout(function(){
+        responseEl.textContent = ' '
+      }, 500)
+
         currentQuestionIndex++
         showQuestions()
         
