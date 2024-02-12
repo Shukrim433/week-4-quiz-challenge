@@ -14,6 +14,7 @@ var saveBtnEl = document.getElementById('save-score')
 var viewScoresBtnEl = document.getElementById('view-high-scores')
 var startAgainBtnEl = document.getElementById('start-again')
 var initialsEl = document.getElementById('initials')
+var savedScoresEl = document.getElementById('saved-scores')
 
 var currentQuestionIndex = 0
 var countDown
@@ -99,10 +100,22 @@ function showQuestions (){
 
 saveBtnEl.addEventListener('click', function(){
     var finalScore = finalScoreSpan.textContent
-    localStorage.setItem(initialsEl.value, finalScore)
+
+    function saveScores(){
+        var yourScore = {
+            name: initialsEl.value,
+            score: finalScore
+        }
+        localStorage.setItem('allScores', JSON.stringify(yourScore))
+    }
+    saveScores()
+
 })
 
+
+
 /*startAgainBtnEl.addEventListener('clicl', function (){})*/
+/* localStorage.setItem(initialsEl.value, finalScore)*/
 
 
     
