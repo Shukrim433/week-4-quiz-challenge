@@ -106,13 +106,25 @@ saveBtnEl.addEventListener('click', function(){
             name: initialsEl.value,
             score: finalScore
         }
-        localStorage.setItem('allScores', JSON.stringify(yourScore))
+        localStorage.setItem('yourScore', JSON.stringify(yourScore))
     }
     saveScores()
 
 })
 
+viewScoresBtnEl.addEventListener('click' , function(){
 
+    function showScores () {
+        var lastScore = JSON.parse(localStorage.getItem('yourScore'))
+        if (lastScore !== null){
+            document.getElementById('name-span').innerHTML = lastScore.name
+            document.getElementById('score-span').innerHTML = lastScore.score
+            
+        }
+    }
+    showScores()
+    
+})
 
 /*startAgainBtnEl.addEventListener('clicl', function (){})*/
 /* localStorage.setItem(initialsEl.value, finalScore)*/
