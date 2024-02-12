@@ -3,6 +3,7 @@ var startEl = document.getElementById('start-button')
 var welcomPageEl = document.getElementById('welcome-page')
 var quizPageEl = document.getElementById('quiz-page')
 var resultsPageEl = document.getElementById('results-page')
+var savedScoresPageEl = document.getElementById('saved-scores-page')
 
 var optionsEl = document.getElementById('options')
 var finalScoreSpan = document.getElementById('final-score')
@@ -22,6 +23,8 @@ var countDown
 welcomPageEl.style.display = 'block'
 quizPageEl.style.display = 'none'
 resultsPageEl.style.display = 'none'
+savedScoresPageEl.style.display = 'none'
+
 
 function stopQuiz(){
     clearInterval(countDown)
@@ -29,6 +32,7 @@ function stopQuiz(){
     welcomPageEl.style.display = 'none'
     quizPageEl.style.display = 'none'
     resultsPageEl.style.display = 'block'
+    savedScoresPageEl.style.display = 'none'
 
 }
 
@@ -37,6 +41,7 @@ startEl.addEventListener('click', function(){
     welcomPageEl.style.display = 'none'
     quizPageEl.style.display = 'block'
     resultsPageEl.style.display = 'none'
+    savedScoresPageEl.style.display = 'none'
 
     timerSpan.textContent = 75
 
@@ -97,8 +102,30 @@ function showQuestions (){
 
     showQuestions()
 
+    saveBtnEl.addEventListener('click', function(){
+        var finalScore = finalScoreSpan.textContent
+    
+        function saveScores(){
+            var savedScores = JSON.parse(localStorage.getItem('savedScores')) || [];
+            
+            var yourScore = {
+                name: initialsEl.value,
+                score: finalScore
+            };
+            savedScores.push(yourScore);
+            
+            localStorage.setItem('savedScores', JSON.stringify(savedScores));
+        }
+        saveScores();
+    });
+    
+        
 
-saveBtnEl.addEventListener('click', function(){
+
+
+    
+
+/*saveBtnEl.addEventListener('click', function(){
     var finalScore = finalScoreSpan.textContent
 
     function saveScores(){
@@ -113,18 +140,24 @@ saveBtnEl.addEventListener('click', function(){
 })
 
 viewScoresBtnEl.addEventListener('click' , function(){
+    welcomPageEl.style.display = 'none'
+    quizPageEl.style.display = 'none'
+    resultsPageEl.style.display = 'none'
+    savedScoresPageEl.style.display = 'block'
+
 
     function showScores () {
         var lastScore = JSON.parse(localStorage.getItem('yourScore'))
+
         if (lastScore !== null){
-            document.getElementById('name-span').innerHTML = lastScore.name
-            document.getElementById('score-span').innerHTML = lastScore.score
+            document.getElementById('name-span').textContent = lastScore.name
+            document.getElementById('score-span').textContent = lastScore.score
             
         }
     }
     showScores()
     
-})
+})*/
 
 /*startAgainBtnEl.addEventListener('clicl', function (){})*/
 /* localStorage.setItem(initialsEl.value, finalScore)*/
