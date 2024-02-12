@@ -11,6 +11,7 @@
 <body>
     <header>
         <div id="high-score">
+            <!--line below links to the high scores html file/webpage-->
             <a href="./high-scores.html">SEE HIGH SCORES</a>
         </div>
         <div id="seconds-left">SECONDS LEFT:<span id="timer"></span></div>
@@ -37,6 +38,10 @@
     <div id="results-page" class="hidden">
         <h1> ALL DONE!</h1>
         <h2> Your final score is: <span id="final-score">0</span></h2>
+        <div id="saved-scores">
+            <p id="name"> Name: <span id="name-span"></span></p>
+            <p id="score"> Score: <span id="score-span"></span></p>
+        </div>
         <input id="initials" type="text" placeholder="please enter your initials"></input>
         <button id="save-score">SAVE YOUR SCORE</button>
         <button id="view-high-scores" class="button">VIEW ALL HIGH SCORES</button>
