@@ -106,24 +106,51 @@ function showQuestions (){
         var finalScore = finalScoreSpan.textContent
     
         function saveScores(){
-            var savedScores = JSON.parse(localStorage.getItem('savedScores')) || [];
+            var savedScores = JSON.parse(localStorage.getItem('savedScores')) || []
             
             var yourScore = {
                 name: initialsEl.value,
                 score: finalScore
-            };
-            savedScores.push(yourScore);
+            }
+            savedScores.push(yourScore)
             
-            localStorage.setItem('savedScores', JSON.stringify(savedScores));
+            localStorage.setItem('savedScores', JSON.stringify(savedScores))
         }
-        saveScores();
-    });
+        saveScores()
+    })
     
-        
-
-
-
     
+    viewScoresBtnEl.addEventListener('click' , function(){
+        welcomPageEl.style.display = 'none'
+        quizPageEl.style.display = 'none'
+        resultsPageEl.style.display = 'none'
+        savedScoresPageEl.style.display = 'block'
+    
+        function showScores () {
+            var savedScores = JSON.parse(localStorage.getItem('savedScores')) || []
+
+            for (var i = 0; i < savedScores.length; i++) {
+
+            var listItem = document.createElement('li')
+            
+            var content = '<p>Name: <span>' +savedScores[i].name + '</span></p>'
+            content += '<p>Score: <span>' +savedScores[i].score + '</span></p>'
+
+            listItem.innerHTML = content
+
+            savedScoresPageEl.appendChild(listItem)
+        }
+          
+    }
+        showScores()
+    })
+
+
+
+
+
+
+
 
 /*saveBtnEl.addEventListener('click', function(){
     var finalScore = finalScoreSpan.textContent
