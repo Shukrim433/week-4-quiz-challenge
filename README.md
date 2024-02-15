@@ -30,10 +30,11 @@
 
 ## Webpage
 
-This is a screenshot of the deployed application:
+- This is a screenshot of the deployed application:
 
 ![ screenshot of the webpage](./assets/webpage-4.png)
 
 
-This is a link to the deployed webpage:
+- This is a link to the deployed webpage:
+
 https://shukrim433.github.io/week-4-quiz-challenge/
