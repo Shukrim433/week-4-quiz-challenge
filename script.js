@@ -36,7 +36,6 @@ function stopQuiz(){
 
 }
 
-
 startEl.addEventListener('click', function(){
     welcomPageEl.style.display = 'none'
     quizPageEl.style.display = 'block'
