@@ -64,13 +64,13 @@ function showQuestions (){
         return
     }
     
-    questionEl.innerHTML = questions[currentQuestionIndex].question
     optionsEl.innerHTML = ''
 
     var optionsUl = document.createElement('ul')
     optionsEl.appendChild(optionsUl)
 
     for (var i=0 ; i<questions[currentQuestionIndex].options.length ; i++){
+        questionEl.innerHTML = questions[currentQuestionIndex].question
         var optionsLi = document.createElement('li')
         optionsUl.appendChild(optionsLi)
         optionsLi.textContent = questions[currentQuestionIndex].options[i]
@@ -99,7 +99,6 @@ function showQuestions (){
         showQuestions()
         
     })  
-
     showQuestions()
 
     saveBtnEl.addEventListener('click', function(){
