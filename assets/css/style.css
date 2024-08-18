@@ -1,0 +1,117 @@
+:root {
+  --red: #9b2915;
+  --blue: #50a2a7;
+  --brown: #1c110a;
+  --font: ;
+}
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+}
+
+#welcome-page {
+  text-align: center;
+}
+#seconds-left {
+  color: white;
+  background-color: var(--blue);
+  border: 1px, solid, var(--blue);
+  border-radius: 10px;
+  padding: 4%;
+  font-size: medium;
+  text-align: center;
+  min-width: 140px;
+}
+
+#start-button {
+  background-color: var(--red);
+  font-size: large;
+  color: white;
+  border-radius: 10px;
+  min-width: 100px;
+  min-height: 70px;
+  border: 1px, solid, var(--red);
+}
+
+#quiz-page {
+  background-color: rgba(0, 0, 0, 0.123);
+  border-radius: 10px;
+  border: 2px, dashed, var(--brown);
+  padding: 5%;
+  margin: 5%;
+}
+
+#message {
+  background-color: rgba(0, 0, 0, 0.123);
+  border-radius: 10px;
+  border: 2px, dashed, var(--brown);
+  text-align: center;
+  padding: 5%;
+  margin: 5%;
+}
+
+input {
+  border-radius: 5px;
+  padding: 2%;
+}
+#save-score {
+  border-radius: 5px;
+  padding: 2%;
+  background-color: var(--red);
+  color: white;
+  border: 1px, solid, var(--red);
+}
+#view-high-scores {
+  border-radius: 5px;
+  padding: 2%;
+  background-color: var(--red);
+  color: white;
+  border: 1px, solid, var(--red);
+}
+#inputs {
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#save-score:hover {
+  cursor: pointer;
+}
+#view-high-scores:hover {
+  cursor: pointer;
+}
+#saved-scores-page {
+  background-color: rgba(0, 0, 0, 0.123);
+  border-radius: 10px;
+  font-size: larger;
+  border: 2px, dashed, var(--brown);
+  min-width: 50vw;
+  text-align: center;
+  padding: 5%;
+  margin: 5%;
+  list-style:circle;
+}
+#question {
+  font-size: large;
+  font-weight: bolder;
+}
+
+#options:hover {
+  cursor: pointer;
+}
+
+#start-button:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+  background-color: var(--blue);
+  border: 1px, solid, var(--blue);
+}

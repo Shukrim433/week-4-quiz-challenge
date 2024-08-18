@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shukri's Coding Quiz</title>
-    <link  rel="reset-stylesheet" href="./assets/css/reset.css"/>
-    <link rel="'css-stylesheet" href="./assets/css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css"/>
 </head>
 
 <body>
     <header>
-        <div id="high-score">
-            <!--line below links to the high scores html file/webpage-->
+     <!--    <div id="high-score">
+            line below links to the high scores html file/webpage
             <a href="./high-scores.html">SEE HIGH SCORES</a>
-        </div>
-        <div id="seconds-left">SECONDS LEFT:<span id="timer"></span></div>
+        </div> --> 
+        <div class="hidden" id="seconds-left">SECONDS LEFT:<br/><span id="timer"></span></div>
     </header>  
 
     <div id="welcome-page">
@@ -36,11 +38,16 @@
     </div>
     
     <div id="results-page" class="hidden">
-        <h1> ALL DONE!</h1>
-        <h2> Your final score is: <span id="final-score">0</span></h2>
-        <input id="initials" type="text" placeholder="please enter your initials"></input>
-        <button id="save-score">SAVE YOUR SCORE</button>
-        <button id="view-high-scores" class="button">VIEW ALL HIGH SCORES</button>
+        <div id="message">
+            <h1> ALL DONE!</h1>
+            <h2> Your final score is: <span id="final-score">0</span></h2>
+        </div>
+        
+        <div id="inputs">
+            <input id="initials" type="text" placeholder="please enter your initials"></input>
+            <button id="save-score">SAVE YOUR SCORE</button>
+            <button id="view-high-scores" class="button">VIEW ALL HIGH SCORES</button>
+        </div>
         <!--<button id="start-again" class="button">START AGAIN?</button>-->
     </div>
 

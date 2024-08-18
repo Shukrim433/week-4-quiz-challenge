@@ -4,6 +4,7 @@ var welcomPageEl = document.getElementById('welcome-page')
 var quizPageEl = document.getElementById('quiz-page')
 var resultsPageEl = document.getElementById('results-page')
 var savedScoresPageEl = document.getElementById('saved-scores-page')
+var secondsLeftEl =document.getElementById('seconds-left')
 
 var optionsEl = document.getElementById('options')
 var finalScoreSpan = document.getElementById('final-score')
@@ -21,6 +22,7 @@ var currentQuestionIndex = 0
 var countDown
 
 welcomPageEl.style.display = 'block'
+secondsLeftEl.style.display = 'none'
 quizPageEl.style.display = 'none'
 resultsPageEl.style.display = 'none'
 savedScoresPageEl.style.display = 'none'
@@ -33,14 +35,17 @@ function stopQuiz(){
     quizPageEl.style.display = 'none'
     resultsPageEl.style.display = 'block'
     savedScoresPageEl.style.display = 'none'
+    secondsLeftEl.style.display = 'none'
 
 }
 
 startEl.addEventListener('click', function(){
     welcomPageEl.style.display = 'none'
     quizPageEl.style.display = 'block'
+    secondsLeftEl.style.display = 'block'
     resultsPageEl.style.display = 'none'
     savedScoresPageEl.style.display = 'none'
+    
 
     timerSpan.textContent = 75
 
@@ -123,6 +128,7 @@ function showQuestions (){
         quizPageEl.style.display = 'none'
         resultsPageEl.style.display = 'none'
         savedScoresPageEl.style.display = 'block'
+        secondsLeftEl.style.display = 'none'
     
         function showScores () {
             var savedScores = JSON.parse(localStorage.getItem('savedScores')) || []
