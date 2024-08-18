@@ -32,7 +32,8 @@
 
 - This is a screenshot of the deployed application:
 
-![ screenshot of the webpage](./assets/webpage-4.png)
+![image](https://github.com/user-attachments/assets/e474f45c-6b19-442c-92de-fa73fbbc7c58)
+
 
 
 - This is a link to the deployed webpage:
